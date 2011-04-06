@@ -1,0 +1,26 @@
+#header {
+	height: 50px;
+	background-color: #666;
+	margin-bottom: 10px;
+}
+
+#nav {
+	float: left;
+	width: 180px;
+	height: 150px;
+	background-color: #999;
+	margin-bottom: 10px;
+}
+
+#main {
+	margin: 0 30px 10px 210px;
+	height: 150px;
+	background-color: #999;
+}
+
+#footer {
+	clear: both;
+	height: 50px;
+	background-color: #666;
+	margin-bottom: 10px;
+}

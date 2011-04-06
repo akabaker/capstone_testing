@@ -1,12 +1,12 @@
 from django.conf.urls.defaults import patterns, include, url
-from capstone.home.views import MainPage
+from capstone.home.views import main_page
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	(r'^$', MainPage.as_view()),
+	(r'^$', main_page),
     # Examples:
     # url(r'^$', 'capstone.views.home', name='home'),
     # url(r'^capstone/', include('capstone.foo.urls')),

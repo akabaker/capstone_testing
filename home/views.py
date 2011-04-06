@@ -1,6 +1,4 @@
-# Create your views here.
+from django.shortcuts import render_to_response
 
-from django.views.generic import TemplateView
-
-class MainPage(TemplateView):
-	template_name = "base.html"
+def main_page(request):
+	return render_to_response('home.html', {'var': 'hi'})
