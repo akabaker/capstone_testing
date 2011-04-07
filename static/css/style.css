@@ -9,11 +9,10 @@
 	width: 230px;
 	height: 150px;
 	background-color: #999;
-	margin-bottom: 10px;
 }
 
 #main {
-	margin: 0 0 10px 250px;
+	margin: 0 0 0 250px;
 	height: 768px;
 	background-color: #999;
 }
