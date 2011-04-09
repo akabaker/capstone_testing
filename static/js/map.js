@@ -1,4 +1,12 @@
-function initialize() {
+function MapHandler() {
+
+	this.geoCodeAnchor = document.getElementById("mh-go");
+}
+
+MapHandler.prototype.initialize = function() {
+	
+	this.addListener('click', this.geoCodeAnchor, this.geoCode);
+
 	var latlng = new google.maps.LatLng(38.94617, -92.32866);
 	var myOptions = {
 		zoom: 19,
@@ -17,10 +25,18 @@ function initialize() {
 	poly = new google.maps.Polyline(polyOptions);
 	poly.setMap(map);
 
-	google.maps.event.addListener(map, 'click', addLatLng);
+	google.maps.event.addListener(map, 'click', this.addLatLng);
 }
 
-function addLatLng(event) {
+MapHandler.prototype.addLatLng = function(event) {
 	var path = poly.getPath();
 	path.push(event.latLng);
+}
+
+MapHandler.prototype.geoCode = function() {
+	alert(this.geoCodeAnchor);
+}
+
+MapHandler.prototype.addListener = function(action, target, callback) {
+	target.addEventListener(action, callback, false);
 }

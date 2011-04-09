@@ -11,9 +11,10 @@
 
 {% block main-content %}
 	<input id="address" type="textbox" value="An address"/>
-	<input type="button" onclick="codeAddress()" value="Go"/>
+	<input type="button" id="mh-go" value="Go"/>
 	<div id="map-canvas" style="width:100%; height:100%; float:left"></div>
 	<script type="text/javascript">
-		window.onload = initialize();
+		MapHandler = new MapHandler();
+		window.onload = MapHandler.initialize();
 	</script>
 {% endblock %}
