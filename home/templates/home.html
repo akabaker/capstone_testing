@@ -6,11 +6,11 @@
 
 {% block js %}
 	<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-	<script src="/static/js/map.js"></script>
+	<script src="/static/js/maphandler.js"></script>
 {% endblock js %}
 
 {% block main-content %}
-	<input id="address" type="textbox" value="An address"/>
+	<input id="mh-address" type="textbox" value="An address"/>
 	<input type="button" id="mh-go" value="Go"/>
 	<div id="map-canvas" style="width:100%; height:100%; float:left"></div>
 	<script type="text/javascript">
