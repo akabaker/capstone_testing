@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from capstone.home.views import main_page
+from capstone.home.views import main_page, geo_code
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -7,6 +7,7 @@ from capstone.home.views import main_page
 
 urlpatterns = patterns('',
 	(r'^$', main_page),
+	(r'^geocode/', geo_code),
     # Examples:
     # url(r'^$', 'capstone.views.home', name='home'),
     # url(r'^capstone/', include('capstone.foo.urls')),
