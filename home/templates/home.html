@@ -5,16 +5,19 @@
 {% endblock %}
 
 {% block js %}
-	<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-	<script src="/static/js/maphandler.js"></script>
+	<script src='https://maps.google.com/maps/api/js?sensor=false'></script>
+	<script src='/static/js/maphandler.js'></script>
 {% endblock js %}
 
 {% block main-content %}
-	<input id="mh-address" style="width:400px" type="textbox" value="An address"
-	onkeydown="if (event.keyCode == 13) document.getElementById('mh-go').click()">
-	<input type="button" id="mh-go" value="Go">
-	<div id="map-canvas" style="width:100%; height:100%; float:left"></div>
-	<script type="text/javascript">
+	<div class='fleft ui-corner-left'>
+		<input id='mh-address' class='input-search ui-corner-left' type='textbox'
+		onkeydown='if (event.keyCode == 13) document.getElementById("mh-go").click()'>
+		<input type='button' id='mh-go' value='Go'>
+	</div>
+	<div id='map-canvas' class='ui-helper-clearfix ui-corner-left' style='width:100%; height:100%; float:left'></div>
+	<script type='text/javascript'>
+		$("#mh-go").button();
 		window.onload = MapHandler.initialize();
 	</script>
 {% endblock %}

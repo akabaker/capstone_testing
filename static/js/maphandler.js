@@ -1,5 +1,4 @@
 MapHandler = {
-	//geoCodeUrl: 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&',
 	geoCodeUrl: 'https://maps.googleapis.com/maps/api/geocode/json',
 	geoCodeHandler: '/geocode/'
 };

@@ -1,3 +1,9 @@
+body {
+	background-color: #F2EFE9;
+	background: -moz-linear-gradient(bottom, #F2EFE9, #FEFEFE);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#F2EFE9), to(#FEFEFE));
+}
+
 #header {
 	height: 50px;
 	background-color: #666;
@@ -22,4 +28,20 @@
 	height: 50px;
 	background-color: #666;
 	margin-bottom: 10px;
+}
+
+.fleft {
+	float: left;
+	margin-left: 10px;
+}
+
+.fright {
+	float: right;
+	margin-right: 10px;
+}
+
+.input-search {
+	padding: 0.5em;
+	margin: 0.5em;
+	width: 30em;
 }
