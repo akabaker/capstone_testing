@@ -39,16 +39,25 @@ MapHandler.doGeoCode = function() {
 		type: 'GET',
 		data: params, 
 		success: function(data) {
-			alert(data);
+			var obj = JSON.parse(data);
+			var lat = obj.results[0].geometry.location.lat;
+			var lng = obj.results[0].geometry.location.lng;
+
+			MapHandler.initialize(lat, lng);
 		}
 	});
 }
 
-MapHandler.initialize = function() {
+MapHandler.initialize = function(lat, lng) {
+
+	//Default values for MU campus
+	lat = typeof(lat) != 'undefined' ? lat : 38.94617;
+	lng = typeof(lng) != 'undefined' ? lng : -92.32866; 
+
 	var geoCodeBtn = MapHandler.geoCodeBtn();
 	MapHandler.addListener(geoCodeBtn, 'click', MapHandler.doGeoCode);
 
-	var latlng = new google.maps.LatLng(38.94617, -92.32866);
+	var latlng = new google.maps.LatLng(lat, lng);
 	var myOptions = {
 		zoom: 19,
 		center: latlng,

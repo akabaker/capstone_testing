@@ -55,24 +55,20 @@
   <div id="container">
 	<header id="header">
 		{% block header %}
-		header
 		{% endblock header %}
 	</header>
 	<aside id="nav" class="ui-corner-right">	
 		{% block aside %}
-		nav
 		{% endblock aside %}
 	</aside>
 
-    <div id="main" role="main">
+    <div id="main" class="ui-corner-tl" role="main">
 		{% block main-content %}
-		main content
 		{% endblock main-content %}
     </div>  <!-- end of #main_content -->
  
     <footer id="footer">
 		{% block footer %}
-		footer
 		{% endblock footer %}
     </footer>
   </div> <!-- end of #container -->
