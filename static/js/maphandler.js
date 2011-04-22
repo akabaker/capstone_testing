@@ -46,6 +46,21 @@ MapHandler.doGeoCode = function() {
 			MapHandler.initialize(lat, lng);
 		}
 	});
+
+	/*
+	var req = new XMLHttpRequest();
+	req.open('POST', MapHandler.geoCodeHandler, true);
+	req.send(params);
+	req.onreadystatechange = function (e) {
+		if (req.readyState == 4) {
+			if(req.status == 200) {
+				alert(req.responseText);
+			} else {
+				alert("Error loading page");
+			}
+		}
+	};
+	*/
 }
 
 MapHandler.initialize = function(lat, lng) {

@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
-from django.utils import simplejson
+from django.utils import simplejson as json
 import urllib
 
 def main_page(request):
@@ -17,6 +17,6 @@ def geo_code(request):
 	}
 
 	url = geocodeurl + '?' + urllib.urlencode(geo_args)
-	result = simplejson.load(urllib.urlopen(url))
+	result = json.load(urllib.urlopen(url))
 
-	return HttpResponse(simplejson.dumps(result), mimetype='application/javascript')
+	return HttpResponse(json.dumps(result), mimetype='application/javascript')

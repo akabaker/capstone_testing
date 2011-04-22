@@ -6,7 +6,8 @@ body {
 
 #header {
 	height: 50px;
-	background-color: #666;
+	border: 1px solid #80B2F7;
+	/*background-color: #666;*/
 	margin-bottom: 10px;
 }
 
@@ -14,19 +15,21 @@ body {
 	float: left;
 	width: 230px;
 	height: 400px;
-	background-color: #999;
+	border: 1px solid #80B2F7;
+	/*background-color: #999;*/
 }
 
 #main {
 	margin: 0 0 0 250px;
 	height: 768px;
-	background-color: #999;
+	background-color: #80B2F7;
 }
 
 #footer {
 	clear: both;
 	height: 50px;
-	background-color: #666;
+	border: 1px solid #80B2F7;
+	/*background-color: #666;*/
 	margin-bottom: 10px;
 }
 
