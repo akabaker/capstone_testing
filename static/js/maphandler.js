@@ -24,27 +24,30 @@ var MapHandler = function() {
 		var params = {
 			address: address.value,
 			geoCodeUrl: geoCodeUrl,
-			sensor: false
+			sensor: 'false'
 		};
-
-		/*
+		
 		var req = new XMLHttpRequest();
 		req.open('POST', geoCodeHandler, true);
-		req.send(params);
-		req.onreadystatechange = function (e) {
+		req.onreadystatechange = function () {
 			if (req.readyState == 4) {
-				if(req.status == 200) {
-					alert(req.responseText);
+				if (req.status == 200) {
+					var obj = JSON.parse(req.responseText);
+					var lat = obj.results[0].geometry.location.lat;
+					var lng = obj.results[0].geometry.location.lng;
+
+					initialize(lat, lng);
 				} else {
 					alert("Error loading page");
 				}
 			}
-		};
-		*/
+		}
+		req.send(JSON.stringify(params));
 
+		/*
 		$.ajax({
 			url: geoCodeHandler,
-			type: 'GET',
+			type: 'POST',
 			data: params, 
 			success: function(data) {
 				var obj = JSON.parse(data);
@@ -54,6 +57,7 @@ var MapHandler = function() {
 				initialize(lat, lng);
 			}
 		});
+		*/
 	}
 	
 	function initialize(lat, lng) {
