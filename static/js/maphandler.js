@@ -43,21 +43,6 @@ var MapHandler = function() {
 			}
 		}
 		req.send(JSON.stringify(params));
-
-		/*
-		$.ajax({
-			url: geoCodeHandler,
-			type: 'POST',
-			data: params, 
-			success: function(data) {
-				var obj = JSON.parse(data);
-				var lat = obj.results[0].geometry.location.lat;
-				var lng = obj.results[0].geometry.location.lng;
-
-				initialize(lat, lng);
-			}
-		});
-		*/
 	}
 	
 	function initialize(lat, lng) {
