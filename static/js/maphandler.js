@@ -26,13 +26,17 @@ var MapHandler = function() {
 			geoCodeUrl: geoCodeUrl,
 			sensor: 'false'
 		};
-		
-		var req = new XMLHttpRequest();
-		req.open('POST', geoCodeHandler, true);
-		req.onreadystatechange = function () {
-			if (req.readyState == 4) {
-				if (req.status == 200) {
-					var obj = JSON.parse(req.responseText);
+
+		if (window.XMLHttpRequest) {
+			var xmlhttp = new XMLHttpRequest();
+  		} else {
+			var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open('POST', geoCodeHandler, true);
+		xmlhttp.onreadystatechange = function () {
+			if (xmlhttp.readyState == 4) {
+				if (xmlhttp.status == 200) {
+					var obj = JSON.parse(xmlhttp.responseText);
 					var lat = obj.results[0].geometry.location.lat;
 					var lng = obj.results[0].geometry.location.lng;
 
@@ -42,9 +46,9 @@ var MapHandler = function() {
 				}
 			}
 		}
-		req.send(JSON.stringify(params));
+		xmlhttp.send(JSON.stringify(params));
 	}
-	
+
 	function initialize(lat, lng) {
 		//Default values for MU campus
 		lat = typeof(lat) != 'undefined' ? lat : 38.94617;
@@ -60,6 +64,7 @@ var MapHandler = function() {
 		};
 
 		var map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
+		MapHandler.map = map;
 
 		var polyOptions = {
 			strokeColor: '#000000',
@@ -73,12 +78,27 @@ var MapHandler = function() {
 		google.maps.event.addListener(map, 'click', addLatLng);
 	}
 
+	function setMarkers() {
+		//google.maps.event.addListener(MapHandler.map, 'click', function(event) {
+		//});
+		//var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(38.94617, -92.32866),
+			map: MapHandler.map,
+			draggable: true,
+			animation: google.maps.Animation.BOUNCE
+		});
+	}
+
 	/* 
 	 * Public Methods
 	 */
 	return {
 		init: function() {
 			initialize();
+		},
+		markers: function() {
+			setMarkers();
 		}
 	}
 }
