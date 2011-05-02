@@ -5,6 +5,7 @@ var MapHandler = function() {
 	var geoCodeHandler = '/geocode/';
 	var geoCodeBtn = document.getElementById('mh-go');
 	var address = document.getElementById('mh-address');
+	var clearPointsButton = document.getElementById('clear-points');
 
 	function _doGeoCode() {
 		var params = {
@@ -13,13 +14,6 @@ var MapHandler = function() {
 			sensor: 'false'
 		};
 
-		/*
-		if (window.XMLHttpRequest) {
-			var xmlhttp = new XMLHttpRequest();
-  		} else {
-			var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		*/
 		xmlhttp = helper.xmlHttp();
 		xmlhttp.open('POST', geoCodeHandler, true);
 		xmlhttp.onreadystatechange = function () {
@@ -29,7 +23,7 @@ var MapHandler = function() {
 					var lat = obj.results[0].geometry.location.lat;
 					var lng = obj.results[0].geometry.location.lng;
 
-					initialize(lat, lng);
+					_initialize(lat, lng);
 				} else {
 					alert("Error loading page");
 				}
@@ -57,11 +51,17 @@ var MapHandler = function() {
 	}
 
 	/* 
-	 * Public Methods
-	 */
+	* Public Methods
+	*/
 	return {
 		init: function() {
 			var map = _initialize();
+
+			var that = this;
+			helper.addListener(clearPointsButton, 'click', function(e) {
+				that.init();
+			});
+
 			return map;
 		},
 	}
