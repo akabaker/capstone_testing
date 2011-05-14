@@ -57,10 +57,12 @@ var MapHandler = function() {
 		init: function() {
 			var map = _initialize();
 
+			/*
 			var that = this;
 			helper.addListener(clearPointsButton, 'click', function(e) {
 				that.init();
 			});
+			*/
 
 			return map;
 		},
